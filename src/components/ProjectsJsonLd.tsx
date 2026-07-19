@@ -13,8 +13,8 @@
  * (e.g. /projects/:slug) rendered server-side or pre-rendered.
  */
 
-const SITE = "https://mohammad-ilhan.vercel.app";
-const AUTHOR = "Mohammad Ilhan";
+const SITE = "https://zenyxdigitals.com";
+const AUTHOR = "ZENYX Digitals";
 
 type ProjectSeo = {
   name: string;
@@ -137,19 +137,19 @@ const buildEntity = (p: ProjectSeo, position: number) => {
       genre: p.category,
       datePublished: p.year,
       author: {
-        "@type": "Person",
+        "@type": "Organization",
         name: AUTHOR,
         url: SITE,
       },
       creator: {
-        "@type": "Person",
+        "@type": "Organization",
         name: AUTHOR,
         url: SITE,
       },
       isPartOf: {
         "@type": "WebSite",
         "@id": `${SITE}/#website`,
-        name: "Mohammad Ilhan Portfolio",
+        name: "ZENYX Digitals",
         url: SITE,
       },
       ...(sameAs.length > 0 ? { sameAs } : {}),
@@ -167,9 +167,9 @@ const ProjectsJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Featured Projects by Mohammad Ilhan",
+    name: "Selected Work by ZENYX Digitals",
     description:
-      "Case studies of freelance, AI/ML, and template projects designed and built by Mohammad Ilhan.",
+      "Client websites, AI-powered products, and premium templates designed and built by ZENYX Digitals.",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     numberOfItems: projects.length,
     itemListElement: projects.map((p, i) => buildEntity(p, i + 1)),

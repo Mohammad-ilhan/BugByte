@@ -5,10 +5,10 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Work", href: "#projects" },
+  { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -32,10 +32,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="font-display text-xl font-bold text-gradient-fire">
-          MI.
+        <a href="#home" className="flex items-center gap-2 group">
+          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-display font-extrabold text-primary-foreground text-sm">
+            Z
+          </span>
+          <span className="font-display text-lg font-extrabold tracking-tight">
+            <span className="text-foreground">ZENYX</span>
+            <span className="text-primary"> Digitals</span>
+          </span>
         </a>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -45,6 +51,12 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="text-sm font-body font-semibold px-4 py-1.5 rounded-lg bg-primary text-primary-foreground hover:scale-105 transition-transform"
+          >
+            Hire Us
+          </a>
           <ThemeToggle />
         </div>
         <div className="md:hidden flex items-center gap-2">
@@ -73,6 +85,13 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="text-sm font-body font-semibold px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center"
+              >
+                Hire Us
+              </a>
             </div>
           </motion.div>
         )}
