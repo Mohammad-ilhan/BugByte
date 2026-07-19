@@ -46,10 +46,13 @@ const ContactSection = () => {
           transition={{ duration: 0.7, ease }}
           className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Get In Touch</p>
+          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Start a Project</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
             Let's <GradientReveal text="Connect" />
           </h2>
+          <p className="text-muted-foreground font-body text-sm sm:text-base mt-4 max-w-xl mx-auto">
+            Tell us about your project — we'll respond within 24 hours with a plan and a quote.
+          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-12">
@@ -60,14 +63,13 @@ const ContactSection = () => {
             className="space-y-6 sm:space-y-8"
           >
             <p className="text-muted-foreground font-body text-sm sm:text-base lg:text-lg leading-relaxed">
-              Open for freelance projects, AI collaborations, and full-time opportunities.
-              Let's build something extraordinary together.
+              Landing pages, full-stack platforms, e-commerce, redesigns — if it lives on the web,
+              ZENYX Digitals can build it. Let's make something remarkable.
             </p>
             {[
-              { icon: Mail, label: "mohammadilhan345@gmail.com", href: "mailto:mohammadilhan345@gmail.com" },
-              { icon: Phone, label: "+91-9636632048", href: "tel:+919636632048" },
-              { icon: MessageCircle, label: "Chat on WhatsApp", href: "https://wa.me/919636632048" },
-              { icon: MapPin, label: "Jhalawar, Rajasthan, India" },
+              { icon: Mail, label: "hello@zenyxdigitals.com", href: "mailto:hello@zenyxdigitals.com" },
+              { icon: MessageCircle, label: "Chat with the studio", href: "mailto:hello@zenyxdigitals.com" },
+              { icon: MapPin, label: "Remote · Serving clients worldwide" },
             ].map(({ icon: Icon, label, href }, idx) => (
               <motion.div
                 key={label}

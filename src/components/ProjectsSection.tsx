@@ -165,17 +165,19 @@ const ProjectsSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-12 sm:mb-20"
         >
-          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Portfolio</p>
+          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-            Featured <GradientReveal text="Projects" />
+            Recent <GradientReveal text="Projects" />
           </h2>
-          <p className="text-muted-foreground text-xs sm:text-sm font-body mt-3">Tap any card to open the case study</p>
+          <p className="text-muted-foreground text-sm sm:text-base font-body mt-4 max-w-xl mx-auto">
+            A snapshot of websites, platforms and products we've shipped for clients around the world.
+          </p>
         </motion.div>
 
-        {/* Freelance */}
+        {/* Client Websites */}
         <ProjectGroup
-          title="Freelance Projects"
-          subtitle="Client work & production deployments"
+          title="Client Websites"
+          subtitle="Full-stack builds & production deployments"
           icon={Briefcase}
           projects={freelanceProjects}
           inView={inView}
@@ -184,10 +186,10 @@ const ProjectsSection = () => {
           gridCols="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto"
         />
 
-        {/* AI */}
+        {/* AI-Powered */}
         <ProjectGroup
-          title="AI & ML Projects"
-          subtitle="Intelligent systems & machine learning"
+          title="AI-Powered Products"
+          subtitle="Intelligent tools & AI-integrated web apps"
           icon={Bot}
           projects={aiProjects}
           inView={inView}
@@ -196,10 +198,10 @@ const ProjectsSection = () => {
           gridCols="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto"
         />
 
-        {/* Wedding */}
+        {/* Templates */}
         <ProjectGroup
-          title="Wedding Invitation Templates"
-          subtitle="Premium customizable wedding templates"
+          title="Premium Templates"
+          subtitle="Ready-to-launch designs, customized to your brand"
           icon={Heart}
           projects={weddingTemplates}
           inView={inView}
