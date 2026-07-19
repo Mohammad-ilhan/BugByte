@@ -1,32 +1,41 @@
-import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUp, Instagram, Linkedin, Mail } from "lucide-react";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Services", href: "#services" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Work", href: "#projects" },
+  { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
 
 const Footer = () => (
-  <footer className="pt-12 pb-8 border-t border-border relative">
+  <footer className="pt-16 pb-8 border-t border-border relative">
     <div className="container mx-auto px-6">
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10 max-w-5xl mx-auto">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12 max-w-5xl mx-auto">
         <div>
-          <p className="font-display text-xl font-bold text-gradient-fire mb-2">Mohammad Ilhan</p>
-          <p className="text-muted-foreground text-xs font-body leading-relaxed mb-3">
-            ML Engineer · Full Stack Developer · Freelancer crafting AI-powered web experiences.
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-display font-extrabold text-primary-foreground text-sm">
+              Z
+            </span>
+            <p className="font-display text-lg font-extrabold">
+              <span className="text-foreground">ZENYX</span>
+              <span className="text-primary"> Digitals</span>
+            </p>
+          </div>
+          <p className="text-muted-foreground text-xs font-body leading-relaxed mb-4 max-w-xs">
+            A digital studio building landing pages, full-stack platforms and e-commerce
+            experiences for ambitious brands.
           </p>
           <div className="flex items-center gap-2 text-xs font-body">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
             </span>
-            <span className="text-muted-foreground">Available for freelance</span>
+            <span className="text-muted-foreground">Accepting new projects</span>
           </div>
         </div>
         <div>
-          <p className="font-display text-sm font-semibold text-foreground mb-3">Quick Links</p>
+          <p className="font-display text-sm font-semibold text-foreground mb-3">Explore</p>
           <ul className="space-y-1.5">
             {links.map((l) => (
               <li key={l.href}>
@@ -38,17 +47,23 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <p className="font-display text-sm font-semibold text-foreground mb-3">Connect</p>
+          <p className="font-display text-sm font-semibold text-foreground mb-3">Get in Touch</p>
+          <a
+            href="mailto:hello@zenyxdigitals.com"
+            className="text-muted-foreground hover:text-primary text-xs font-body transition-colors block mb-3"
+          >
+            hello@zenyxdigitals.com
+          </a>
           <div className="flex gap-3">
             {[
-              { Icon: Github, href: "https://github.com/Mohammad-ilhan", label: "GitHub" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/in/mohammad-ilhan/", label: "LinkedIn" },
-              { Icon: Mail, href: "mailto:mohammadilhan345@gmail.com", label: "Email" },
+              { Icon: Linkedin, href: "#", label: "LinkedIn" },
+              { Icon: Instagram, href: "#", label: "Instagram" },
+              { Icon: Mail, href: "mailto:hello@zenyxdigitals.com", label: "Email" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
-                target="_blank"
+                target={href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
                 aria-label={label}
                 className="w-9 h-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
@@ -62,7 +77,7 @@ const Footer = () => (
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-border max-w-5xl mx-auto">
         <p className="text-muted-foreground text-xs font-body">
-          © {new Date().getFullYear()} Mohammad Ilhan — Crafted with passion & AI
+          © {new Date().getFullYear()} ZENYX Digitals · All rights reserved.
         </p>
         <a
           href="#home"
