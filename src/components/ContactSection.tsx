@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Github, Linkedin, Send, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
