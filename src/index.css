@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --background: 220 20% 4%;
+    --foreground: 40 20% 92%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 24 100% 55%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 40 15% 80%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 16 80% 50%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 24 100% 55%;
+
+    --radius: 0.75rem;
+
+    --ember: 24 100% 55%;
+    --ember-glow: 16 90% 45%;
+    --fire: 36 100% 60%;
+    --smoke: 220 15% 20%;
+
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+
+    --gradient-fire: linear-gradient(135deg, hsl(24 100% 55%), hsl(36 100% 60%), hsl(16 90% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(220 20% 4%), hsl(220 18% 8%));
+    --shadow-ember: 0 0 40px -10px hsl(24 100% 55% / 0.4);
+    --shadow-fire: 0 0 80px -20px hsl(24 100% 55% / 0.3);
+  }
+
+  /* Light "water" theme — applied via <html class="water"> */
+  :root.water {
+    color-scheme: light;
+    --background: 200 60% 96%;
+    --foreground: 215 45% 12%;
+
+    --card: 200 50% 99%;
+    --card-foreground: 215 45% 12%;
+
+    --popover: 200 50% 99%;
+    --popover-foreground: 215 45% 12%;
+
+    --primary: 200 95% 42%;
+    --primary-foreground: 200 60% 98%;
+
+    --secondary: 200 50% 90%;
+    --secondary-foreground: 215 35% 25%;
+
+    --muted: 200 45% 92%;
+    --muted-foreground: 210 25% 40%;
+
+    --accent: 190 90% 45%;
+    --accent-foreground: 200 60% 98%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 40% 82%;
+    --input: 200 40% 82%;
+    --ring: 200 95% 42%;
+
+    /* Re-skin the "fire" tokens so existing classes (text-gradient-fire,
+       glow-ember, glow-fire, border-ember, scrollbar) become "water". */
+    --ember: 200 95% 42%;
+    --ember-glow: 190 90% 50%;
+    --fire: 180 85% 55%;
+    --smoke: 200 40% 80%;
+
+    --gradient-fire: linear-gradient(135deg, hsl(200 95% 42%), hsl(190 90% 50%), hsl(180 85% 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(200 60% 96%), hsl(200 50% 99%));
+    --shadow-ember: 0 0 40px -10px hsl(200 95% 42% / 0.4);
+    --shadow-fire: 0 0 80px -20px hsl(190 90% 50% / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Smooth color transitions when swapping themes */
+  .theme-animate,
+  .theme-animate * {
+    transition: background-color 600ms ease, color 600ms ease,
+      border-color 600ms ease, fill 600ms ease, stroke 600ms ease,
+      box-shadow 600ms ease;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient-fire {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-fire);
+  }
+
+  .glow-ember {
+    box-shadow: var(--shadow-ember);
+  }
+
+  .glow-fire {
+    box-shadow: var(--shadow-fire);
+  }
+
+  .border-ember {
+    border-color: hsl(var(--ember) / 0.3);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--ember) / 0.4);
+  border-radius: 3px;
+}
+
+/* Floating particles animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+/* Theme transition: per-element freeze / ignite pulses */
+@keyframes el-freeze {
+  0%   { filter: none; transform: scale(1); }
+  22%  { filter: brightness(1.22) saturate(0.78) hue-rotate(158deg) drop-shadow(0 0 14px hsl(192 100% 78% / 0.72)); transform: translate3d(0, -2px, 0) scale(1.012); }
+  46%  { filter: brightness(1.45) saturate(0.46) hue-rotate(172deg) drop-shadow(0 0 24px hsl(195 100% 72% / 0.98)); transform: translate3d(0, -4px, 0) scale(1.018); }
+  72%  { filter: brightness(0.94) saturate(0.74) hue-rotate(168deg) drop-shadow(0 0 14px hsl(200 100% 62% / 0.74)); transform: translate3d(0, 0, 0) scale(0.996); }
+  100% { filter: none; transform: scale(1); }
+}
+@keyframes el-ignite {
+  0%   { filter: none; transform: scale(1); }
+  24%  { filter: brightness(1.3) saturate(1.28) hue-rotate(-8deg) drop-shadow(0 0 14px hsl(24 100% 60% / 0.7)); transform: translate3d(0, -2px, 0) scale(1.016); }
+  48%  { filter: brightness(1.68) saturate(1.7) hue-rotate(-18deg) drop-shadow(0 0 26px hsl(20 100% 55% / 0.98)); transform: translate3d(0, -4px, 0) scale(1.024); }
+  74%  { filter: brightness(1.18) saturate(1.44) drop-shadow(0 0 14px hsl(35 100% 55% / 0.76)); transform: translate3d(0, 0, 0) scale(0.992); }
+  100% { filter: none; transform: scale(1); }
+}
+.theme-freeze-pulse { animation: el-freeze 900ms cubic-bezier(0.16, 1, 0.3, 1) both; will-change: filter, transform; transform-origin: center; }
+.theme-ignite-pulse { animation: el-ignite 900ms cubic-bezier(0.16, 1, 0.3, 1) both; will-change: filter, transform; transform-origin: center; }
+
+html.theme-sweeping,
+html.theme-sweeping body {
+  overflow: hidden;
+}
+
+html.theme-sweeping * {
+  backface-visibility: hidden;
+}
+
+html.theme-sweeping-water body {
+  filter: saturate(1.02) contrast(1.02);
+}
+
+html.theme-sweeping-fire body {
+  filter: saturate(1.06) contrast(1.03);
+}

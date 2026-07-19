@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chrono-canvas-creation.lovable.app/sitemap.xml

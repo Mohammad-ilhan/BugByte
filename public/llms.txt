@@ -1,0 +1,15 @@
+# Mohammad Ilhan — Portfolio
+
+> Portfolio of Mohammad Ilhan, an ML Engineer and Full Stack Developer building RAG-based AI systems, intelligent chatbots, and production web applications for freelance clients.
+
+Mohammad Ilhan is a B.Tech CSE student at JECRC University, Jaipur (graduating 2026). Selected for a Hewlett Packard Enterprise (HPE) AI project where he built a dual-model RAG chatbot. Certified in Machine Learning from Columbia University. Available for freelance work in AI/ML, full stack web development, and prompt engineering.
+
+## Pages
+
+- [Home](/): Introduction, hero, and overview of services.
+- [About](/#about): Background, education, and experience as an ML Engineer and Prompt Engineer.
+- [Skills](/#skills): Tech stack — Python, Scikit-learn, FAISS, Ollama, Groq API, RAG, React, TypeScript, Tailwind, Cloudflare Workers.
+- [Projects](/#projects): Case studies of freelance work (Ayurvedic wellness platform, e-commerce stores, jewellery shop), AI/ML projects (Family Scam Alert System, AI Lawyer RAG chatbot), and premium wedding invitation templates.
+- [Testimonials](/#testimonials): Client feedback from freelance and AI project work.
+- [Experience](/#experience): Timeline of education, HPE AI project, and Columbia ML certification.
+- [Contact](/#contact): Email, phone, WhatsApp, and contact form for hiring or collaboration.
