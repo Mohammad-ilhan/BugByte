@@ -56,6 +56,7 @@ export default function Lanyard({
             imageFit={imageFit}
             lanyardImage={lanyardImage}
             lanyardWidth={lanyardWidth}
+            cardTint={cardTint}
           />
         </Physics>
         <Environment blur={0.75}>
