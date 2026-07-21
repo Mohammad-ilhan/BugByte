@@ -137,14 +137,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
+            className="lanyard-theme-host absolute inset-y-0 right-0 w-[46%] pointer-events-none hidden lg:block"
           >
-            <Lanyard
-              position={[0, 0, 18]}
-              gravity={[0, -40, 0]}
-              frontImage={zenyxLogo}
-              imageFit="cover"
-            />
+            <div className="relative w-full h-full pointer-events-auto">
+              <Lanyard
+                position={[0, 0, 18]}
+                gravity={[0, -40, 0]}
+                frontImage={zenyxLogo}
+                backImage={zenyxLogo}
+                imageFit="contain"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
