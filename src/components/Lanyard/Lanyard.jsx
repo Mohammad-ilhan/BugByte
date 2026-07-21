@@ -78,7 +78,8 @@ function Band({
   backImage = null,
   imageFit = 'cover',
   lanyardImage = null,
-  lanyardWidth = 1
+  lanyardWidth = 1,
+  cardTint = '#ffffff'
 }) {
   const band = useRef(),
     fixed = useRef(),
