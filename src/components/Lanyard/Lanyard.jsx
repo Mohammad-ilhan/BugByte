@@ -29,7 +29,8 @@ export default function Lanyard({
   backImage = null,
   imageFit = 'cover',
   lanyardImage = null,
-  lanyardWidth = 1
+  lanyardWidth = 1,
+  cardTint = '#ffffff'
 }) {
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
 
@@ -55,6 +56,7 @@ export default function Lanyard({
             imageFit={imageFit}
             lanyardImage={lanyardImage}
             lanyardWidth={lanyardWidth}
+            cardTint={cardTint}
           />
         </Physics>
         <Environment blur={0.75}>
@@ -76,7 +78,8 @@ function Band({
   backImage = null,
   imageFit = 'cover',
   lanyardImage = null,
-  lanyardWidth = 1
+  lanyardWidth = 1,
+  cardTint = '#ffffff'
 }) {
   const band = useRef(),
     fixed = useRef(),
@@ -220,6 +223,7 @@ function Band({
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
                 map={cardMap}
+                color={cardTint}
                 map-anisotropy={16}
                 clearcoat={1}
                 clearcoatRoughness={0.15}
