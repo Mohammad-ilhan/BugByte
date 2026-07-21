@@ -9,3 +9,9 @@
   transform: scale(1);
   transform-origin: center;
 }
+
+/* Light "water" theme — tint the 3D card canvas to match the palette */
+:root.water .lanyard-wrapper canvas {
+  filter: brightness(1.18) contrast(0.92) saturate(0.85) hue-rotate(170deg);
+}
+
