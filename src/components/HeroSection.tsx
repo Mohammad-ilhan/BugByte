@@ -41,9 +41,26 @@ const HeroSection = () => {
         ZENYX
       </div>
 
+      {/* RIGHT: interactive lanyard card - absolute overlay so it doesn't add space */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="lanyard-theme-host absolute top-0 right-0 h-full w-[42%] pointer-events-none hidden lg:block z-10"
+      >
+        <div className="relative w-full h-full pointer-events-auto">
+          <Lanyard
+            position={[0, 0, 18]}
+            gravity={[0, -40, 0]}
+            frontImage={zenyxLogo}
+            backImage={zenyxLogo}
+            imageFit="contain"
+          />
+        </div>
+      </motion.div>
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-8 items-center">
-          {/* LEFT: copy */}
+        <div className="max-w-3xl lg:pr-[40%]">
           <div className="text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -131,21 +148,6 @@ const HeroSection = () => {
               ))}
             </motion.div>
           </div>
-
-          {/* RIGHT: interactive lanyard card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
-          >
-            <Lanyard
-              position={[0, 0, 18]}
-              gravity={[0, -40, 0]}
-              frontImage={zenyxLogo}
-              imageFit="cover"
-            />
-          </motion.div>
         </div>
       </div>
     </section>
