@@ -43,111 +43,113 @@ const HeroSection = () => {
         ZENYX
       </div>
 
+      {/* Lanyard: absolutely positioned overlay on the right, does not steal text width */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block w-[46%] xl:w-[42%] z-20"
+      >
+        <div className="pointer-events-auto absolute inset-0">
+          <Lanyard
+            position={[0, 0, 18]}
+            gravity={[0, -40, 0]}
+            frontImage={zenyxLogo}
+            backImage={zenyxLogo}
+            imageFit="contain"
+            cardTint={theme === "water" ? "#e8f4fb" : "#ffffff"}
+          />
+        </div>
+      </motion.div>
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-8 items-center">
-          {/* LEFT: copy */}
-          <div className="text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm mb-8"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-              </span>
-              <span className="text-primary font-body text-xs tracking-[0.3em] uppercase">
-                Digital Studio · Est. 2025
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display font-extrabold leading-[0.9] tracking-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)" }}
-            >
-              <span className="text-foreground">ZENYX</span>{" "}
-              <GradientReveal text="Digitals" />
-              <br />
-              <span className="text-muted-foreground font-display text-[0.4em] sm:text-[0.35em] font-medium tracking-widest uppercase block mt-4">
-                We build websites that convert.
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-muted-foreground font-body text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
-            >
-              A digital studio crafting high-performing{" "}
-              <span className="text-foreground font-semibold">landing pages</span>,{" "}
-              <span className="text-foreground font-semibold">full-stack platforms</span>, and{" "}
-              <span className="text-foreground font-semibold">e-commerce experiences</span> for
-              ambitious brands worldwide.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start flex-wrap mb-16"
-            >
-              <MagneticButton
-                href="#contact"
-                className="px-7 py-3 bg-primary text-primary-foreground font-body font-semibold text-sm sm:text-base rounded-lg glow-ember hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
-              >
-                Start a Project <ArrowRight size={16} />
-              </MagneticButton>
-              <MagneticButton
-                href="#projects"
-                className="px-7 py-3 border border-primary/30 text-foreground font-body font-semibold text-sm sm:text-base rounded-lg hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 inline-flex items-center gap-2"
-              >
-                <Sparkles size={16} className="text-primary" /> View Our Work
-              </MagneticButton>
-            </motion.div>
-
-            {/* Trust bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="grid grid-cols-3 max-w-3xl mx-auto lg:mx-0 border-t border-border pt-8"
-            >
-              {[
-                { value: "10+", label: "Happy Clients" },
-                { value: "1+ Yr", label: "Studio Experience" },
-                { value: "100%", label: "On-Time Delivery" },
-              ].map((s) => (
-                <div key={s.label} className="text-center lg:text-left px-2">
-                  <p className="font-display text-2xl sm:text-4xl font-extrabold text-gradient-fire">
-                    {s.value}
-                  </p>
-                  <p className="text-muted-foreground text-[10px] sm:text-xs font-body tracking-[0.2em] uppercase mt-1">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* RIGHT: interactive lanyard card */}
+        <div className="max-w-3xl text-center lg:text-left">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm mb-8"
           >
-            <Lanyard
-              position={[0, 0, 18]}
-              gravity={[0, -40, 0]}
-              frontImage={zenyxLogo}
-              imageFit="cover"
-            />
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            <span className="text-primary font-body text-xs tracking-[0.3em] uppercase">
+              Digital Studio · Est. 2025
+            </span>
           </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display font-extrabold leading-[0.9] tracking-tight mb-6"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)" }}
+          >
+            <span className="text-foreground">ZENYX</span>{" "}
+            <GradientReveal text="Digitals" />
+            <br />
+            <span className="text-muted-foreground font-display text-[0.4em] sm:text-[0.35em] font-medium tracking-widest uppercase block mt-4">
+              We build websites that convert.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-muted-foreground font-body text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+          >
+            A digital studio crafting high-performing{" "}
+            <span className="text-foreground font-semibold">landing pages</span>,{" "}
+            <span className="text-foreground font-semibold">full-stack platforms</span>, and{" "}
+            <span className="text-foreground font-semibold">e-commerce experiences</span> for
+            ambitious brands worldwide.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start flex-wrap mb-16"
+          >
+            <MagneticButton
+              href="#contact"
+              className="px-7 py-3 bg-primary text-primary-foreground font-body font-semibold text-sm sm:text-base rounded-lg glow-ember hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
+            >
+              Start a Project <ArrowRight size={16} />
+            </MagneticButton>
+            <MagneticButton
+              href="#projects"
+              className="px-7 py-3 border border-primary/30 text-foreground font-body font-semibold text-sm sm:text-base rounded-lg hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 inline-flex items-center gap-2"
+            >
+              <Sparkles size={16} className="text-primary" /> View Our Work
+            </MagneticButton>
+          </motion.div>
+
+          {/* Trust bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="grid grid-cols-3 max-w-3xl mx-auto lg:mx-0 border-t border-border pt-8"
+          >
+            {[
+              { value: "10+", label: "Happy Clients" },
+              { value: "1+ Yr", label: "Studio Experience" },
+              { value: "100%", label: "On-Time Delivery" },
+            ].map((s) => (
+              <div key={s.label} className="text-center lg:text-left px-2">
+                <p className="font-display text-2xl sm:text-4xl font-extrabold text-gradient-fire">
+                  {s.value}
+                </p>
+                <p className="text-muted-foreground text-[10px] sm:text-xs font-body tracking-[0.2em] uppercase mt-1">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
         </div>
       </div>
     </section>
