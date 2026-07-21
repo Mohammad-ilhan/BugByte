@@ -1,6 +1,7 @@
 import { motion, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useGlobalMouse } from "@/hooks/use-global-mouse";
+import { useTheme } from "@/hooks/use-theme";
 import MagneticButton from "@/components/MagneticButton";
 import GradientReveal from "@/components/GradientReveal";
 import Lanyard from "@/components/Lanyard/Lanyard";
@@ -8,6 +9,7 @@ import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
 
 const HeroSection = () => {
   const { mx, my } = useGlobalMouse();
+  const { theme } = useTheme();
   const orb1X = useTransform(mx, (v) => v * 60);
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
