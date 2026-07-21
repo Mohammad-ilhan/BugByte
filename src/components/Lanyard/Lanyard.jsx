@@ -223,6 +223,7 @@ function Band({
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
                 map={cardMap}
+                color={cardTint}
                 map-anisotropy={16}
                 clearcoat={1}
                 clearcoatRoughness={0.15}
