@@ -283,7 +283,7 @@ const ProjectsSection = () => {
           icon={Bot}
           projects={aiProjects}
           inView={inView}
-          startIndex={3}
+          startIndex={8}
           onOpen={setActive}
           gridCols="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto"
         />
@@ -295,7 +295,7 @@ const ProjectsSection = () => {
           icon={Heart}
           projects={weddingTemplates}
           inView={inView}
-          startIndex={5}
+          startIndex={10}
           onOpen={setActive}
           gridCols="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto"
           last
