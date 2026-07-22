@@ -30,6 +30,28 @@ type ProjectSeo = {
 
 const projects: ProjectSeo[] = [
   {
+    name: "Tivagro Digital — Agri-Tech Corporate Site",
+    slug: "tivagro-digital",
+    description:
+      "Full-stack corporate web platform for agri-tech company Tivagro Digital with service showcases, validated lead-capture forms, and a modern editorial design system.",
+    category: "Freelance",
+    type: "WebSite",
+    year: "2026",
+    keywords: ["React", "Full Stack", "Agri-Tech", "Corporate", "SEO"],
+    live: "https://tivagrodigital.com/",
+  },
+  {
+    name: "Digital Amnik — Digital Marketing Agency",
+    slug: "digital-amnik",
+    description:
+      "Conversion-focused marketing website for Digital Amnik with structured service pages, strong brand identity system, and a high-intent lead funnel.",
+    category: "Freelance",
+    type: "WebSite",
+    year: "2026",
+    keywords: ["React", "Marketing Site", "SEO", "Branding", "Agency"],
+    live: "https://digitalamnik.com/",
+  },
+  {
     name: "Dr. Aliza Fatima — Ayurvedic Wellness Web Platform",
     slug: "aliza-fatima-wellness",
     description:
@@ -61,6 +83,39 @@ const projects: ProjectSeo[] = [
     year: "2026",
     keywords: ["Cloudflare Workers", "Edge Computing", "JavaScript", "E-Commerce", "Performance"],
     live: "https://linea-glide-one.mohammadilhan345.workers.dev/",
+  },
+  {
+    name: "Effervescent Studio — Creative Landing Page",
+    slug: "effervescent-landing",
+    description:
+      "High-impact single-page creative landing site with scroll-triggered animations, bold typography, and optimised Lighthouse performance. Deployed on Netlify.",
+    category: "Freelance",
+    type: "WebSite",
+    year: "2025",
+    keywords: ["Landing Page", "Animation", "Netlify", "Design", "Performance"],
+    live: "https://effervescent-tiramisu-42ef9d.netlify.app/",
+  },
+  {
+    name: "Cerulean Product Site — Live Production Build",
+    slug: "cerulean-product-site",
+    description:
+      "Actively maintained product website built on a modular component system with CI-driven deploys, preview environments, and ongoing SEO tuning.",
+    category: "Freelance",
+    type: "WebSite",
+    year: "2026",
+    keywords: ["React", "Netlify", "Product Site", "Ongoing", "CI/CD"],
+    live: "https://cerulean-crisp-84c711.netlify.app",
+  },
+  {
+    name: "Celebrated Travesseiro — Editorial Brand Site",
+    slug: "celebrated-travesseiro",
+    description:
+      "Editorial-style brand website with rich product storytelling, refined custom typography, and an optimised responsive imagery pipeline. Deployed on Netlify.",
+    category: "Freelance",
+    type: "WebSite",
+    year: "2025",
+    keywords: ["Brand Site", "Editorial", "Typography", "Netlify", "Design"],
+    live: "https://6a5fc4f7202629127a101e6c--celebrated-travesseiro-9c7378.netlify.app/",
   },
   {
     name: "Family Scam Alert System",
