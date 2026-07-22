@@ -5,13 +5,17 @@ import MagneticButton from "@/components/MagneticButton";
 import GradientReveal from "@/components/GradientReveal";
 import Lanyard from "@/components/Lanyard/Lanyard";
 import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
+import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
+import { useTheme } from "@/hooks/use-theme";
 
 const HeroSection = () => {
   const { mx, my } = useGlobalMouse();
+  const { theme } = useTheme();
   const orb1X = useTransform(mx, (v) => v * 60);
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
   const orb2Y = useTransform(my, (v) => v * -70);
+  const cardLogo = theme === "water" ? zenyxLogoLight : zenyxLogo;
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
@@ -140,9 +144,11 @@ const HeroSection = () => {
             className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
           >
             <Lanyard
+              key={theme}
               position={[0, 0, 18]}
               gravity={[0, -40, 0]}
-              frontImage={zenyxLogo}
+              frontImage={cardLogo}
+              backImage={cardLogo}
               imageFit="cover"
             />
           </motion.div>
