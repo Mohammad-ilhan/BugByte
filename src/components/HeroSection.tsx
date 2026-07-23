@@ -1,4 +1,5 @@
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useGlobalMouse } from "@/hooks/use-global-mouse";
 import MagneticButton from "@/components/MagneticButton";
@@ -11,6 +12,11 @@ import { useTheme } from "@/hooks/use-theme";
 const HeroSection = () => {
   const { mx, my } = useGlobalMouse();
   const { theme } = useTheme();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const wordmarkY = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const wordmarkOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const orb1X = useTransform(mx, (v) => v * 60);
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
