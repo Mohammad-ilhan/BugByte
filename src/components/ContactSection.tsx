@@ -109,6 +109,8 @@ const ContactSection = () => {
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
             <input name="from_email" id="contact-email" type="email" placeholder="Your Email" required aria-label="Your email address"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
+            <input name="from_phone" id="contact-phone" type="tel" placeholder="Your Mobile Number" required aria-label="Your mobile number" pattern="[0-9+\-\s()]{7,}"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
             <textarea name="message" id="contact-message" placeholder="Your Message" rows={4} required aria-label="Your message"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none" />
             <button type="submit" disabled={sending}
