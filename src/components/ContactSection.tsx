@@ -68,6 +68,7 @@ const ContactSection = () => {
             </p>
             {[
               { icon: Mail, label: "hello@zenyxdigitals.com", href: "mailto:hello@zenyxdigitals.com" },
+              { icon: Phone, label: "+91 98765 43210", href: "tel:+919876543210" },
               { icon: MessageCircle, label: "Chat with the studio", href: "mailto:hello@zenyxdigitals.com" },
               { icon: MapPin, label: "Remote · Serving clients worldwide" },
             ].map(({ icon: Icon, label, href }, idx) => (
