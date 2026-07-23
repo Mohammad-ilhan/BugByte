@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Send, MessageCircle } from "lucide-react";
+import { Mail, MapPin, Send, MessageCircle, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
@@ -68,6 +68,7 @@ const ContactSection = () => {
             </p>
             {[
               { icon: Mail, label: "hello@zenyxdigitals.com", href: "mailto:hello@zenyxdigitals.com" },
+              { icon: Phone, label: "+91 98765 43210", href: "tel:+919876543210" },
               { icon: MessageCircle, label: "Chat with the studio", href: "mailto:hello@zenyxdigitals.com" },
               { icon: MapPin, label: "Remote · Serving clients worldwide" },
             ].map(({ icon: Icon, label, href }, idx) => (
@@ -107,6 +108,8 @@ const ContactSection = () => {
             <input name="from_name" id="contact-name" placeholder="Your Name" required aria-label="Your name"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
             <input name="from_email" id="contact-email" type="email" placeholder="Your Email" required aria-label="Your email address"
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
+            <input name="from_phone" id="contact-phone" type="tel" placeholder="Your Mobile Number" required aria-label="Your mobile number" pattern="[0-9+\-\s()]{7,}"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all" />
             <textarea name="message" id="contact-message" placeholder="Your Message" rows={4} required aria-label="Your message"
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-secondary border border-border rounded-lg text-foreground font-body text-xs sm:text-sm placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all resize-none" />

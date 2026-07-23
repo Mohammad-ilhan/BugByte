@@ -1,4 +1,5 @@
-import { motion, useTransform } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useGlobalMouse } from "@/hooks/use-global-mouse";
 import MagneticButton from "@/components/MagneticButton";
@@ -11,6 +12,11 @@ import { useTheme } from "@/hooks/use-theme";
 const HeroSection = () => {
   const { mx, my } = useGlobalMouse();
   const { theme } = useTheme();
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const wordmarkY = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const wordmarkOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const orb1X = useTransform(mx, (v) => v * 60);
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
@@ -18,7 +24,7 @@ const HeroSection = () => {
   const cardLogo = theme === "water" ? zenyxLogoLight : zenyxLogo;
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(24_100%_55%_/_0.12)_0%,_transparent_60%)]" />
       <motion.div
         aria-hidden
@@ -31,21 +37,23 @@ const HeroSection = () => {
         className="pointer-events-none absolute bottom-0 -right-32 w-[28rem] h-[28rem] rounded-full bg-accent/10 blur-[140px]"
       />
 
-      {/* Massive faded wordmark */}
-      <div
+      {/* Massive faded wordmark — parallax on scroll */}
+      <motion.div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 font-display font-extrabold text-center whitespace-nowrap select-none"
         style={{
+          y: wordmarkY,
+          opacity: wordmarkOpacity,
           fontSize: "clamp(120px, 22vw, 340px)",
           letterSpacing: "-0.06em",
           color: "hsl(var(--primary) / 0.04)",
           lineHeight: 1,
         }}
+        className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 font-display font-extrabold text-center whitespace-nowrap select-none will-change-transform"
       >
         ZENYX
-      </div>
+      </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <motion.div style={{ y: contentY }} className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-8 items-center">
           {/* LEFT: copy */}
           <div className="text-center lg:text-left">
@@ -153,7 +161,7 @@ const HeroSection = () => {
             />
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
