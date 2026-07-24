@@ -1,8 +1,9 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, Bot, Shield, Globe, Heart, Briefcase, ArrowUpRight } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
 import GradientReveal from "@/components/GradientReveal";
+import ScrollReveal from "@/components/ScrollReveal";
 import CaseStudyModal, { CaseStudy } from "@/components/CaseStudyModal";
 
 import scamAlert1 from "@/assets/scam-alert-1.webp";
@@ -242,27 +243,38 @@ const weddingTemplates: CaseStudy[] = [
 ];
 
 const ProjectsSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [active, setActive] = useState<CaseStudy | null>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const blobY = useTransform(scrollYProgress, [0, 1], [-120, 120]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [100, -140]);
+  const headingY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 md:py-32 relative">
-      <div className="container mx-auto px-4 sm:px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12 sm:mb-20"
-        >
-          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-            Recent <GradientReveal text="Projects" />
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base font-body mt-4 max-w-xl mx-auto">
-            A snapshot of websites, platforms and products we've shipped for clients around the world.
-          </p>
-        </motion.div>
+    <section ref={ref} id="projects" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+      <motion.div
+        aria-hidden
+        style={{ y: blobY }}
+        className="pointer-events-none absolute top-10 -right-40 w-[32rem] h-[32rem] rounded-full bg-primary/[0.05] blur-[140px]"
+      />
+      <motion.div
+        aria-hidden
+        style={{ y: blob2Y }}
+        className="pointer-events-none absolute bottom-20 -left-40 w-[28rem] h-[28rem] rounded-full bg-accent/[0.06] blur-[140px]"
+      />
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <ScrollReveal direction="up" className="text-center mb-12 sm:mb-20">
+          <motion.div style={{ y: headingY }}>
+            <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+              Recent <GradientReveal text="Projects" />
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base font-body mt-4 max-w-xl mx-auto">
+              A snapshot of websites, platforms and products we've shipped for clients around the world.
+            </p>
+          </motion.div>
+        </ScrollReveal>
 
         {/* Client Websites */}
         <ProjectGroup
@@ -320,13 +332,8 @@ interface GroupProps {
 }
 
 const ProjectGroup = ({ title, subtitle, icon: Icon, projects, inView, startIndex, onOpen, gridCols, last }: GroupProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={inView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: 0.1 + startIndex * 0.04 }}
-    className={last ? "" : "mb-12 sm:mb-16"}
-  >
-    <div className="flex items-center gap-3 mb-6 sm:mb-8">
+  <ScrollReveal direction="up" delay={0.05} className={last ? "" : "mb-12 sm:mb-16"}>
+    <ScrollReveal direction="left" distance={30} className="flex items-center gap-3 mb-6 sm:mb-8">
       <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center">
         <Icon className="text-primary" size={18} />
       </div>
@@ -335,13 +342,13 @@ const ProjectGroup = ({ title, subtitle, icon: Icon, projects, inView, startInde
         <p className="text-muted-foreground text-xs sm:text-sm font-body">{subtitle}</p>
       </div>
       <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent ml-4 hidden sm:block" />
-    </div>
+    </ScrollReveal>
     <div className={gridCols}>
       {projects.map((p, i) => (
-        <ProjectCard key={p.title} project={p} index={startIndex + i} inView={inView} onOpen={onOpen} />
+        <ProjectCard key={p.title} project={p} index={i} inView={inView} onOpen={onOpen} />
       ))}
     </div>
-  </motion.div>
+  </ScrollReveal>
 );
 
 interface CardProps {
@@ -362,10 +369,10 @@ const ProjectCard = ({ project, index, inView, onOpen }: CardProps) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: 0.05 * index }}
+    <ScrollReveal
+      direction="zoom"
+      delay={0.05 * (index % 3)}
+      duration={0.6}
       className="h-full"
     >
       <TiltCard max={6} className="group h-full">
@@ -441,7 +448,7 @@ const ProjectCard = ({ project, index, inView, onOpen }: CardProps) => {
           </div>
         </div>
       </TiltCard>
-    </motion.div>
+    </ScrollReveal>
   );
 };
 
