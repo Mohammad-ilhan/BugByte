@@ -243,27 +243,38 @@ const weddingTemplates: CaseStudy[] = [
 ];
 
 const ProjectsSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [active, setActive] = useState<CaseStudy | null>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const blobY = useTransform(scrollYProgress, [0, 1], [-120, 120]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [100, -140]);
+  const headingY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 md:py-32 relative">
-      <div className="container mx-auto px-4 sm:px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12 sm:mb-20"
-        >
-          <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-            Recent <GradientReveal text="Projects" />
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base font-body mt-4 max-w-xl mx-auto">
-            A snapshot of websites, platforms and products we've shipped for clients around the world.
-          </p>
-        </motion.div>
+    <section ref={ref} id="projects" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
+      <motion.div
+        aria-hidden
+        style={{ y: blobY }}
+        className="pointer-events-none absolute top-10 -right-40 w-[32rem] h-[32rem] rounded-full bg-primary/[0.05] blur-[140px]"
+      />
+      <motion.div
+        aria-hidden
+        style={{ y: blob2Y }}
+        className="pointer-events-none absolute bottom-20 -left-40 w-[28rem] h-[28rem] rounded-full bg-accent/[0.06] blur-[140px]"
+      />
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <ScrollReveal direction="up" className="text-center mb-12 sm:mb-20">
+          <motion.div style={{ y: headingY }}>
+            <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">Selected Work</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+              Recent <GradientReveal text="Projects" />
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base font-body mt-4 max-w-xl mx-auto">
+              A snapshot of websites, platforms and products we've shipped for clients around the world.
+            </p>
+          </motion.div>
+        </ScrollReveal>
 
         {/* Client Websites */}
         <ProjectGroup
