@@ -448,7 +448,7 @@ const ProjectCard = ({ project, index, inView, onOpen }: CardProps) => {
           </div>
         </div>
       </TiltCard>
-    </motion.div>
+    </ScrollReveal>
   );
 };
 
