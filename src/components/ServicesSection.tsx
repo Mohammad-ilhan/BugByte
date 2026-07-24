@@ -1,8 +1,9 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Layout, Layers, ShoppingBag, Rocket, Sparkles, Zap } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
 import GradientReveal from "@/components/GradientReveal";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const services = [
   {
