@@ -332,13 +332,8 @@ interface GroupProps {
 }
 
 const ProjectGroup = ({ title, subtitle, icon: Icon, projects, inView, startIndex, onOpen, gridCols, last }: GroupProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={inView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: 0.1 + startIndex * 0.04 }}
-    className={last ? "" : "mb-12 sm:mb-16"}
-  >
-    <div className="flex items-center gap-3 mb-6 sm:mb-8">
+  <ScrollReveal direction="up" delay={0.05} className={last ? "" : "mb-12 sm:mb-16"}>
+    <ScrollReveal direction="left" distance={30} className="flex items-center gap-3 mb-6 sm:mb-8">
       <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center">
         <Icon className="text-primary" size={18} />
       </div>
@@ -347,13 +342,13 @@ const ProjectGroup = ({ title, subtitle, icon: Icon, projects, inView, startInde
         <p className="text-muted-foreground text-xs sm:text-sm font-body">{subtitle}</p>
       </div>
       <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent ml-4 hidden sm:block" />
-    </div>
+    </ScrollReveal>
     <div className={gridCols}>
       {projects.map((p, i) => (
-        <ProjectCard key={p.title} project={p} index={startIndex + i} inView={inView} onOpen={onOpen} />
+        <ProjectCard key={p.title} project={p} index={i} inView={inView} onOpen={onOpen} />
       ))}
     </div>
-  </motion.div>
+  </ScrollReveal>
 );
 
 interface CardProps {
