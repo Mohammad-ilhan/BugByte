@@ -369,10 +369,10 @@ const ProjectCard = ({ project, index, inView, onOpen }: CardProps) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: 0.05 * index }}
+    <ScrollReveal
+      direction="zoom"
+      delay={0.05 * (index % 3)}
+      duration={0.6}
       className="h-full"
     >
       <TiltCard max={6} className="group h-full">
