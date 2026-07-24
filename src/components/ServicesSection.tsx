@@ -51,18 +51,25 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const blobY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], [60, -100]);
 
   return (
-    <section id="services" className="py-20 sm:py-28 md:py-32 relative">
-      <div className="container mx-auto px-4 sm:px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="max-w-3xl mb-14 sm:mb-20"
-        >
+    <section ref={ref} id="services" className="py-20 sm:py-28 md:py-32 relative overflow-hidden">
+      <motion.div
+        aria-hidden
+        style={{ y: blobY }}
+        className="pointer-events-none absolute -top-20 -left-32 w-[28rem] h-[28rem] rounded-full bg-primary/[0.06] blur-[120px]"
+      />
+      <motion.div
+        aria-hidden
+        style={{ y: blob2Y }}
+        className="pointer-events-none absolute bottom-0 -right-32 w-[24rem] h-[24rem] rounded-full bg-accent/[0.06] blur-[120px]"
+      />
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <ScrollReveal direction="up" className="max-w-3xl mb-14 sm:mb-20">
           <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">
             What We Do
           </p>
@@ -73,15 +80,15 @@ const ServicesSection = () => {
             From single-page launches to complex full-stack platforms — ZENYX Digitals builds
             digital products designed to grow your business.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((s, i) => (
-            <motion.div
+            <ScrollReveal
               key={s.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.55, delay: 0.1 + i * 0.08 }}
+              direction={i % 2 === 0 ? "left" : "right"}
+              delay={0.05 + (i % 3) * 0.08}
+              distance={50}
             >
               <TiltCard max={6} className="group h-full bg-card border border-border rounded-xl p-6 sm:p-7 hover:border-primary/40 hover:glow-ember transition-all duration-500">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:border-primary/50 transition-all">
@@ -104,7 +111,7 @@ const ServicesSection = () => {
                   ))}
                 </div>
               </TiltCard>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
