@@ -1,8 +1,9 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ExternalLink, Github, Bot, Shield, Globe, Heart, Briefcase, ArrowUpRight } from "lucide-react";
 import TiltCard from "@/components/TiltCard";
 import GradientReveal from "@/components/GradientReveal";
+import ScrollReveal from "@/components/ScrollReveal";
 import CaseStudyModal, { CaseStudy } from "@/components/CaseStudyModal";
 
 import scamAlert1 from "@/assets/scam-alert-1.webp";
