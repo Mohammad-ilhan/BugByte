@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useTheme } from "@/hooks/use-theme";
-import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
-import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
+import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -19,7 +19,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { theme } = useTheme();
-  const logo = theme === "water" ? zenyxLogoLight : zenyxLogo;
+  const logo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   useEffect(() => {
     const handle = () => setScrolled(window.scrollY > 50);
