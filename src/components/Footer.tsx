@@ -1,5 +1,7 @@
 import { ArrowUp, Instagram, Linkedin, Mail } from "lucide-react";
-import BugByteLogo from "@/components/BugByteLogo";
+import { useTheme } from "@/hooks/use-theme";
+import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -10,15 +12,20 @@ const links = [
 ];
 
 const Footer = () => {
+  const { theme } = useTheme();
+  const logo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
+
   return (
   <footer className="pt-16 pb-8 border-t border-border relative">
     <div className="container mx-auto px-6">
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-12 max-w-5xl mx-auto">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 text-foreground">
-              <BugByteLogo />
-            </div>
+            <img
+              src={logo}
+              alt="BugByte"
+              className="h-8 w-8 object-contain"
+            />
           </div>
           <p className="text-muted-foreground text-xs font-body leading-relaxed mb-4 max-w-xs">
             A digital studio building landing pages, full-stack platforms and e-commerce

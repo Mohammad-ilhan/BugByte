@@ -5,7 +5,8 @@ import { useGlobalMouse } from "@/hooks/use-global-mouse";
 import MagneticButton from "@/components/MagneticButton";
 import GradientReveal from "@/components/GradientReveal";
 import Lanyard from "@/components/Lanyard/Lanyard";
-import BugByteLogo from "@/components/BugByteLogo";
+import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
 import { useTheme } from "@/hooks/use-theme";
 
 const HeroSection = () => {
@@ -20,6 +21,7 @@ const HeroSection = () => {
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
   const orb2Y = useTransform(my, (v) => v * -70);
+  const cardLogo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   return (
     <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
@@ -147,11 +149,16 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block flex items-center justify-center"
+            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
           >
-            <div className="text-foreground" style={{ width: "200px", height: "200px" }}>
-              <BugByteLogo />
-            </div>
+            <Lanyard
+              key={theme}
+              position={[0, 0, 18]}
+              gravity={[0, -40, 0]}
+              frontImage={cardLogo}
+              backImage={cardLogo}
+              imageFit="cover"
+            />
           </motion.div>
         </div>
       </motion.div>
