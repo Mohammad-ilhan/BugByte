@@ -5,8 +5,8 @@ import { useGlobalMouse } from "@/hooks/use-global-mouse";
 import MagneticButton from "@/components/MagneticButton";
 import GradientReveal from "@/components/GradientReveal";
 import Lanyard from "@/components/Lanyard/Lanyard";
-import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
-import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
+import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
 import { useTheme } from "@/hooks/use-theme";
 
 const HeroSection = () => {
@@ -21,7 +21,7 @@ const HeroSection = () => {
   const orb1Y = useTransform(my, (v) => v * 50);
   const orb2X = useTransform(mx, (v) => v * -90);
   const orb2Y = useTransform(my, (v) => v * -70);
-  const cardLogo = theme === "water" ? zenyxLogoLight : zenyxLogo;
+  const cardLogo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   return (
     <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
@@ -50,7 +50,7 @@ const HeroSection = () => {
         }}
         className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 font-display font-extrabold text-center whitespace-nowrap select-none will-change-transform"
       >
-        ZENYX
+        BUGBYTE
       </motion.div>
 
       <motion.div style={{ y: contentY }} className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -79,7 +79,7 @@ const HeroSection = () => {
               className="font-display font-extrabold leading-[0.9] tracking-tight mb-6"
               style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)" }}
             >
-              <span className="text-foreground">ZENYX</span>{" "}
+              <span className="text-foreground">BugByte</span>{" "}
               <GradientReveal text="Digitals" />
               <br />
               <span className="text-muted-foreground font-display text-[0.4em] sm:text-[0.35em] font-medium tracking-widest uppercase block mt-4">

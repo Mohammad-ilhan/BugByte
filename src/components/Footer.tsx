@@ -1,7 +1,7 @@
 import { ArrowUp, Instagram, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
-import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
-import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
+import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -13,7 +13,7 @@ const links = [
 
 const Footer = () => {
   const { theme } = useTheme();
-  const logo = theme === "water" ? zenyxLogoLight : zenyxLogo;
+  const logo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   return (
   <footer className="pt-16 pb-8 border-t border-border relative">
@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex items-center gap-2 mb-3">
             <img
               src={logo}
-              alt="ZENYX Digitals"
+              alt="BugByte"
               className="h-9 w-auto"
             />
           </div>
@@ -54,16 +54,16 @@ const Footer = () => {
         <div>
           <p className="font-display text-sm font-semibold text-foreground mb-3">Get in Touch</p>
           <a
-            href="mailto:hello@zenyxdigitals.com"
+            href="mailto:hello@bugbyte.com"
             className="text-muted-foreground hover:text-primary text-xs font-body transition-colors block mb-3"
           >
-            hello@zenyxdigitals.com
+            hello@bugbyte.com
           </a>
           <div className="flex gap-3">
             {[
               { Icon: Linkedin, href: "#", label: "LinkedIn" },
               { Icon: Instagram, href: "#", label: "Instagram" },
-              { Icon: Mail, href: "mailto:hello@zenyxdigitals.com", label: "Email" },
+              { Icon: Mail, href: "mailto:hello@bugbyte.com", label: "Email" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}
@@ -82,7 +82,7 @@ const Footer = () => {
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-border max-w-5xl mx-auto">
         <p className="text-muted-foreground text-xs font-body">
-          © {new Date().getFullYear()} ZENYX Digitals · All rights reserved.
+          © {new Date().getFullYear()} BugByte · All rights reserved.
         </p>
         <a
           href="#home"
