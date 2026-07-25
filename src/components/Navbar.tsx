@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useTheme } from "@/hooks/use-theme";
+import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
+import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -15,6 +18,8 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
+  const logo = theme === "water" ? zenyxLogoLight : zenyxLogo;
 
   useEffect(() => {
     const handle = () => setScrolled(window.scrollY > 50);
@@ -33,13 +38,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-display font-extrabold text-primary-foreground text-sm">
-            Z
-          </span>
-          <span className="font-display text-lg font-extrabold tracking-tight">
-            <span className="text-foreground">ZENYX</span>
-            <span className="text-primary"> Digitals</span>
-          </span>
+          <img
+            src={logo}
+            alt="ZENYX Digitals"
+            className="h-9 w-auto transition-opacity duration-300"
+            style={{ imageRendering: "auto" }}
+          />
         </a>
         <div className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
