@@ -1,7 +1,7 @@
 import { ArrowUp, Instagram, Linkedin, Mail } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
-import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
-import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
+import zenyxLogo from "@/assets/lanyard/zenyx-logo.png";
+import zenyxLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -13,7 +13,7 @@ const links = [
 
 const Footer = () => {
   const { theme } = useTheme();
-  const logo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
+  const logo = theme === "water" ? zenyxLogoLight : zenyxLogo;
 
   return (
   <footer className="pt-16 pb-8 border-t border-border relative">
