@@ -5,8 +5,8 @@ import { useGlobalMouse } from "@/hooks/use-global-mouse";
 import MagneticButton from "@/components/MagneticButton";
 import GradientReveal from "@/components/GradientReveal";
 import Lanyard from "@/components/Lanyard/Lanyard";
-import bugbyteLogo from "@/assets/lanyard/bugbyte-logo.png";
-import bugbyteLogoLight from "@/assets/lanyard/bugbyte-logo-light.png";
+import bugbyteLogo from "@/assets/lanyard/zenyx-logo.png";
+import bugbyteLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
 import { useTheme } from "@/hooks/use-theme";
 
 const HeroSection = () => {
