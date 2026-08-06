@@ -111,15 +111,38 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    /* offset for the fixed navbar when jumping to #anchors */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    overflow-wrap: break-word;
+  }
+
+  /* keep mobile browsers from zooming on focus */
+  @media (max-width: 767px) {
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
   }
 }
+
 
 @layer utilities {
   .text-gradient-fire {
