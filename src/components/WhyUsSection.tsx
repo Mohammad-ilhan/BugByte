@@ -35,7 +35,7 @@ const WhyUsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="why-us" className="py-20 sm:py-28 md:py-32 relative">
+    <section id="why-us" className="py-14 sm:py-28 md:py-32 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_hsl(24_100%_55%_/_0.06)_0%,_transparent_55%)]" />
       <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
