@@ -24,7 +24,7 @@ const HeroSection = () => {
   const cardLogo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   return (
-    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section ref={sectionRef} id="home" className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-14 sm:pt-24 sm:pb-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(24_100%_55%_/_0.12)_0%,_transparent_60%)]" />
       <motion.div
         aria-hidden
