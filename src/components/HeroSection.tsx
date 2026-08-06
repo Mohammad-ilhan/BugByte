@@ -157,8 +157,11 @@ const HeroSection = () => {
               gravity={[0, -40, 0]}
               frontImage={cardLogo}
               backImage={cardLogo}
-              imageFit="cover"
+              imageFit="contain"
+              cardBackground={theme === "water" ? "#ffffff" : "#000000"}
+              logoScale={0.55}
             />
+
           </motion.div>
         </div>
       </motion.div>

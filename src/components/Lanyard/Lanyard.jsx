@@ -28,6 +28,8 @@ export default function Lanyard({
   frontImage = null,
   backImage = null,
   imageFit = 'cover',
+  cardBackground = null,
+  logoScale = 0.55,
   lanyardImage = null,
   lanyardWidth = 1
 }) {
@@ -53,6 +55,8 @@ export default function Lanyard({
             frontImage={frontImage}
             backImage={backImage}
             imageFit={imageFit}
+            cardBackground={cardBackground}
+            logoScale={logoScale}
             lanyardImage={lanyardImage}
             lanyardWidth={lanyardWidth}
           />
@@ -75,6 +79,8 @@ function Band({
   frontImage = null,
   backImage = null,
   imageFit = 'cover',
+  cardBackground = null,
+  logoScale = 0.55,
   lanyardImage = null,
   lanyardWidth = 1
 }) {
@@ -113,16 +119,19 @@ function Band({
       const ry = rect.y * H;
       const rw = rect.w * W;
       const rh = rect.h * H;
-      const pick = imageFit === 'contain' ? Math.min : Math.max;
-      const scale = pick(rw / img.width, rh / img.height);
-      const dw = img.width * scale;
-      const dh = img.height * scale;
-      const dx = rx + (rw - dw) / 2;
-      const dy = ry + (rh - dh) / 2;
       ctx.save();
       ctx.beginPath();
       ctx.rect(rx, ry, rw, rh);
       ctx.clip();
+      if (cardBackground) {
+        ctx.fillStyle = cardBackground;
+        ctx.fillRect(rx, ry, rw, rh);
+      }
+      const scale = Math.min((rw * logoScale) / img.width, (rh * logoScale) / img.height);
+      const dw = img.width * scale;
+      const dh = img.height * scale;
+      const dx = rx + (rw - dw) / 2;
+      const dy = ry + (rh - dh) / 2;
       ctx.drawImage(img, dx, dy, dw, dh);
       ctx.restore();
     };
@@ -136,7 +145,7 @@ function Band({
     composite.anisotropy = 16;
     composite.needsUpdate = true;
     return composite;
-  }, [frontImage, backImage, imageFit, frontTex, backTex, materials.base.map]);
+  }, [frontImage, backImage, imageFit, cardBackground, logoScale, frontTex, backTex, materials.base.map]);
 
   const [curve] = useState(
     () =>
