@@ -114,8 +114,6 @@ function Band({
     if (!ctx) return baseMap;
     ctx.drawImage(baseImg, 0, 0, W, H);
 
-    ctx.drawImage(baseImg, 0, 0, W, H);
-
     const drawFitted = (img, rect) => {
       const rx = rect.x * W;
       const ry = rect.y * H;
