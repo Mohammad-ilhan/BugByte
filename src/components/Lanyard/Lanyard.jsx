@@ -28,6 +28,8 @@ export default function Lanyard({
   frontImage = null,
   backImage = null,
   imageFit = 'cover',
+  cardBackground = null,
+  logoScale = 0.55,
   lanyardImage = null,
   lanyardWidth = 1
 }) {
