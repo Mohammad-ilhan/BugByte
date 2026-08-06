@@ -138,7 +138,7 @@ const HeroSection = () => {
                   <p className="font-display text-xl sm:text-4xl font-extrabold text-gradient-fire">
                     {s.value}
                   </p>
-                  <p className="text-muted-foreground text-[9px] sm:text-xs font-body tracking-[0.12em] sm:tracking-[0.2em] uppercase mt-1 leading-tight">
+                  <p className="text-muted-foreground text-[9px] sm:text-xs font-body tracking-normal sm:tracking-[0.2em] uppercase mt-1 leading-tight">
                     {s.label}
                   </p>
                 </div>
