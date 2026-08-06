@@ -55,6 +55,8 @@ export default function Lanyard({
             frontImage={frontImage}
             backImage={backImage}
             imageFit={imageFit}
+            cardBackground={cardBackground}
+            logoScale={logoScale}
             lanyardImage={lanyardImage}
             lanyardWidth={lanyardWidth}
           />
