@@ -114,21 +114,26 @@ function Band({
     if (!ctx) return baseMap;
     ctx.drawImage(baseImg, 0, 0, W, H);
 
+    ctx.drawImage(baseImg, 0, 0, W, H);
+
     const drawFitted = (img, rect) => {
       const rx = rect.x * W;
       const ry = rect.y * H;
       const rw = rect.w * W;
       const rh = rect.h * H;
-      const pick = imageFit === 'contain' ? Math.min : Math.max;
-      const scale = pick(rw / img.width, rh / img.height);
-      const dw = img.width * scale;
-      const dh = img.height * scale;
-      const dx = rx + (rw - dw) / 2;
-      const dy = ry + (rh - dh) / 2;
       ctx.save();
       ctx.beginPath();
       ctx.rect(rx, ry, rw, rh);
       ctx.clip();
+      if (cardBackground) {
+        ctx.fillStyle = cardBackground;
+        ctx.fillRect(rx, ry, rw, rh);
+      }
+      const scale = Math.min((rw * logoScale) / img.width, (rh * logoScale) / img.height);
+      const dw = img.width * scale;
+      const dh = img.height * scale;
+      const dx = rx + (rw - dw) / 2;
+      const dy = ry + (rh - dh) / 2;
       ctx.drawImage(img, dx, dy, dw, dh);
       ctx.restore();
     };
@@ -142,7 +147,7 @@ function Band({
     composite.anisotropy = 16;
     composite.needsUpdate = true;
     return composite;
-  }, [frontImage, backImage, imageFit, frontTex, backTex, materials.base.map]);
+  }, [frontImage, backImage, imageFit, cardBackground, logoScale, frontTex, backTex, materials.base.map]);
 
   const [curve] = useState(
     () =>
