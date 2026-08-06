@@ -57,7 +57,7 @@ const ServicesSection = () => {
   const blob2Y = useTransform(scrollYProgress, [0, 1], [60, -100]);
 
   return (
-    <section ref={ref} id="services" className="py-20 sm:py-28 md:py-32 relative overflow-hidden">
+    <section ref={ref} id="services" className="py-14 sm:py-28 md:py-32 relative overflow-hidden">
       <motion.div
         aria-hidden
         style={{ y: blobY }}
@@ -73,7 +73,7 @@ const ServicesSection = () => {
           <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">
             What We Do
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.1] sm:leading-[1.05]">
             Websites that <GradientReveal text="perform" />, brands that <GradientReveal text="stand out" />.
           </h2>
           <p className="text-muted-foreground font-body text-base sm:text-lg mt-6 leading-relaxed">

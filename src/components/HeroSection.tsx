@@ -24,7 +24,7 @@ const HeroSection = () => {
   const cardLogo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
 
   return (
-    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section ref={sectionRef} id="home" className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-14 sm:pt-24 sm:pb-16">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(24_100%_55%_/_0.12)_0%,_transparent_60%)]" />
       <motion.div
         aria-hidden
@@ -43,7 +43,7 @@ const HeroSection = () => {
         style={{
           y: wordmarkY,
           opacity: wordmarkOpacity,
-          fontSize: "clamp(120px, 22vw, 340px)",
+          fontSize: "clamp(72px, 20vw, 340px)",
           letterSpacing: "-0.06em",
           color: "hsl(var(--primary) / 0.04)",
           lineHeight: 1,
@@ -53,6 +53,7 @@ const HeroSection = () => {
         BUGBYTE
       </motion.div>
 
+
       <motion.div style={{ y: contentY }} className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-8 items-center">
           {/* LEFT: copy */}
@@ -61,28 +62,29 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm mb-8"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-sm mb-6 sm:mb-8 max-w-full"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="text-primary font-body text-xs tracking-[0.3em] uppercase">
+              <span className="text-primary font-body text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase">
                 Digital Studio · Est. 2025
               </span>
             </motion.div>
+
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display font-extrabold leading-[0.9] tracking-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 6.5rem)" }}
+              className="font-display font-extrabold leading-[0.95] sm:leading-[0.9] tracking-tight mb-5 sm:mb-6"
+              style={{ fontSize: "clamp(2.25rem, 11vw, 6.5rem)" }}
             >
               <span className="text-foreground">BugByte</span>{" "}
               <GradientReveal text="Digitals" />
               <br />
-              <span className="text-muted-foreground font-display text-[0.4em] sm:text-[0.35em] font-medium tracking-widest uppercase block mt-4">
+              <span className="text-muted-foreground font-display text-[0.45em] sm:text-[0.35em] font-medium tracking-wider sm:tracking-widest uppercase block mt-3 sm:mt-4">
                 We build websites that convert.
               </span>
             </motion.h1>
@@ -91,7 +93,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-muted-foreground font-body text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
+              className="text-muted-foreground font-body text-sm sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed"
             >
               A digital studio crafting high-performing{" "}
               <span className="text-foreground font-semibold">landing pages</span>,{" "}
@@ -104,17 +106,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start flex-wrap mb-16"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center lg:justify-start sm:flex-wrap mb-10 sm:mb-16"
             >
               <MagneticButton
                 href="#contact"
-                className="px-7 py-3 bg-primary text-primary-foreground font-body font-semibold text-sm sm:text-base rounded-lg glow-ember hover:scale-105 transition-transform duration-300 inline-flex items-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 sm:py-3 bg-primary text-primary-foreground font-body font-semibold text-sm sm:text-base rounded-lg glow-ember hover:scale-105 transition-transform duration-300 inline-flex items-center justify-center gap-2"
               >
                 Start a Project <ArrowRight size={16} />
               </MagneticButton>
               <MagneticButton
                 href="#projects"
-                className="px-7 py-3 border border-primary/30 text-foreground font-body font-semibold text-sm sm:text-base rounded-lg hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 inline-flex items-center gap-2"
+                className="w-full sm:w-auto px-7 py-3.5 sm:py-3 border border-primary/30 text-foreground font-body font-semibold text-sm sm:text-base rounded-lg hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 inline-flex items-center justify-center gap-2"
               >
                 <Sparkles size={16} className="text-primary" /> View Our Work
               </MagneticButton>
@@ -125,23 +127,24 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.7 }}
-              className="grid grid-cols-3 max-w-3xl mx-auto lg:mx-0 border-t border-border pt-8"
+              className="grid grid-cols-3 gap-2 max-w-3xl mx-auto lg:mx-0 border-t border-border pt-6 sm:pt-8"
             >
               {[
                 { value: "10+", label: "Happy Clients" },
                 { value: "1+ Yr", label: "Studio Experience" },
                 { value: "100%", label: "On-Time Delivery" },
               ].map((s) => (
-                <div key={s.label} className="text-center lg:text-left px-2">
-                  <p className="font-display text-2xl sm:text-4xl font-extrabold text-gradient-fire">
+                <div key={s.label} className="text-center lg:text-left px-1 sm:px-2">
+                  <p className="font-display text-xl sm:text-4xl font-extrabold text-gradient-fire">
                     {s.value}
                   </p>
-                  <p className="text-muted-foreground text-[10px] sm:text-xs font-body tracking-[0.2em] uppercase mt-1">
+                  <p className="text-muted-foreground text-[9px] sm:text-xs font-body tracking-normal sm:tracking-[0.2em] uppercase mt-1 leading-tight">
                     {s.label}
                   </p>
                 </div>
               ))}
             </motion.div>
+
           </div>
 
           {/* RIGHT: interactive lanyard card */}

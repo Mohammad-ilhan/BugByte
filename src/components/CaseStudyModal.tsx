@@ -64,7 +64,7 @@ const CaseStudyModal = ({ open, onClose, study }: Props) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.97 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-primary/20 bg-card shadow-[0_30px_80px_-20px_hsl(24_100%_55%_/_0.35)]"
+            className="relative w-full max-w-3xl max-h-[85svh] sm:max-h-[90vh] overflow-y-auto overscroll-contain rounded-2xl border border-primary/20 bg-card shadow-[0_30px_80px_-20px_hsl(24_100%_55%_/_0.35)]"
           >
             {/* Hero band */}
             <div className="relative overflow-hidden border-b border-border">
