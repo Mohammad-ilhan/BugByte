@@ -5,12 +5,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 import BugByteLogo from "@/components/BugByteLogo";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Work", href: "#projects" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Work", href: "/#projects" },
+  { label: "Logos", href: "/logos" },
+  { label: "Process", href: "/#process" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
