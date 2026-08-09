@@ -10,12 +10,14 @@ import Footer from "@/components/Footer";
 import FireParticles from "@/components/FireParticles";
 import ProjectsJsonLd from "@/components/ProjectsJsonLd";
 import ScrollProgress from "@/components/ScrollProgress";
+import BackgroundFX from "@/components/BackgroundFX";
 import CursorGlow from "@/components/CursorGlow";
 
 const Index = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <ProjectsJsonLd />
+      <BackgroundFX />
       <ScrollProgress />
       <CursorGlow />
       <FireParticles />
