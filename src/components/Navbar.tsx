@@ -5,12 +5,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 import BugByteLogo from "@/components/BugByteLogo";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Work", href: "#projects" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Why Us", href: "/#why-us" },
+  { label: "Work", href: "/#projects" },
+  { label: "Logos", href: "/logos" },
+  { label: "Process", href: "/#process" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Navbar = () => {
@@ -33,7 +34,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2 group text-foreground">
+        <a href="/#home" className="flex items-center gap-2 group text-foreground">
           <BugByteLogo />
           <span className="font-display font-extrabold text-lg tracking-tight">BugByte</span>
         </a>
@@ -48,7 +49,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="text-sm font-body font-semibold px-4 py-1.5 rounded-lg bg-primary text-primary-foreground hover:scale-105 transition-transform"
           >
             Hire Us
@@ -82,7 +83,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="text-sm font-body font-semibold px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center"
               >
