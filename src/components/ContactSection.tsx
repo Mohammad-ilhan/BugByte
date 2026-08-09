@@ -64,7 +64,7 @@ const ContactSection = () => {
           >
             <p className="text-muted-foreground font-body text-sm sm:text-base lg:text-lg leading-relaxed">
               Landing pages, full-stack platforms, e-commerce, redesigns — if it lives on the web,
-              ZENYX Digitals can build it. Let's make something remarkable.
+              BugByte Digitals can build it. Let's make something remarkable.
             </p>
             {[
               { icon: Mail, label: "hello@zenyxdigitals.com", href: "mailto:hello@zenyxdigitals.com" },

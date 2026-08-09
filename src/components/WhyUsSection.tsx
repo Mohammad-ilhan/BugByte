@@ -8,7 +8,7 @@ const pillars = [
     icon: Users,
     value: "10+",
     label: "Clients Served",
-    detail: "Businesses trust ZENYX Digitals to bring their vision online.",
+    detail: "Businesses trust BugByte Digitals to bring their vision online.",
   },
   {
     icon: Award,
@@ -45,13 +45,13 @@ const WhyUsSection = () => {
             transition={{ duration: 0.7 }}
           >
             <p className="text-primary font-body text-xs sm:text-sm tracking-[0.3em] uppercase mb-3">
-              Why ZENYX
+              Why BugByte
             </p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] mb-6">
               A studio built for <GradientReveal text="ambitious brands" />.
             </h2>
             <p className="text-muted-foreground font-body text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
-              We aren't a template farm. ZENYX Digitals is a small, senior team focused on
+              We aren't a template farm. BugByte Digitals is a small, senior team focused on
               shipping premium digital products — landing pages that convert, full-stack platforms
               that scale, and storefronts that sell.
             </p>

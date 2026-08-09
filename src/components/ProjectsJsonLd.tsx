@@ -14,7 +14,7 @@
  */
 
 const SITE = "https://zenyxdigitals.com";
-const AUTHOR = "ZENYX Digitals";
+const AUTHOR = "BugByte Digitals";
 
 type ProjectSeo = {
   name: string;
@@ -204,7 +204,7 @@ const buildEntity = (p: ProjectSeo, position: number) => {
       isPartOf: {
         "@type": "WebSite",
         "@id": `${SITE}/#website`,
-        name: "ZENYX Digitals",
+        name: "BugByte Digitals",
         url: SITE,
       },
       ...(sameAs.length > 0 ? { sameAs } : {}),
@@ -222,9 +222,9 @@ const ProjectsJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Selected Work by ZENYX Digitals",
+    name: "Selected Work by BugByte Digitals",
     description:
-      "Client websites, AI-powered products, and premium templates designed and built by ZENYX Digitals.",
+      "Client websites, AI-powered products, and premium templates designed and built by BugByte Digitals.",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     numberOfItems: projects.length,
     itemListElement: projects.map((p, i) => buildEntity(p, i + 1)),
