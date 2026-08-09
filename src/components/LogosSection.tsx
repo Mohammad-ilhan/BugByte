@@ -31,10 +31,6 @@ const LogosSection = () => {
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1]">
             Logos we&apos;ve <GradientReveal text="crafted" />.
           </h2>
-          <p className="text-muted-foreground font-body text-sm sm:text-lg mt-4 leading-relaxed">
-            Every brand we build starts with a mark. Hospitality, agriculture, jewellery, education —
-            each identity drawn from scratch and delivered in full colour, mono and reversed sets.
-          </p>
         </motion.div>
 
         <LogoGrid logos={brandLogos.slice(0, 6)} />
