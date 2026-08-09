@@ -77,7 +77,7 @@ const ServicesSection = () => {
             Websites that <GradientReveal text="perform" />, brands that <GradientReveal text="stand out" />.
           </h2>
           <p className="text-muted-foreground font-body text-base sm:text-lg mt-6 leading-relaxed">
-            From single-page launches to complex full-stack platforms — ZENYX Digitals builds
+            From single-page launches to complex full-stack platforms — BugByte Digitals builds
             digital products designed to grow your business.
           </p>
         </ScrollReveal>

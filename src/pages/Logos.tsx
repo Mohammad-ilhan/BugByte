@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FireParticles from "@/components/FireParticles";
 import ScrollProgress from "@/components/ScrollProgress";
+import BackgroundFX from "@/components/BackgroundFX";
 import CursorGlow from "@/components/CursorGlow";
 import LogoGrid from "@/components/LogoGrid";
 import GradientReveal from "@/components/GradientReveal";
@@ -27,6 +28,7 @@ const Logos = () => {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
+      <BackgroundFX />
       <CursorGlow />
       <FireParticles />
       <Navbar />
