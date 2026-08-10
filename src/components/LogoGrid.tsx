@@ -6,7 +6,7 @@ interface LogoGridProps {
 }
 
 const LogoGrid = ({ logos = brandLogos }: LogoGridProps) => (
-  <div className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-3">
+  <div className="grid gap-3 sm:gap-6 grid-cols-1 xs:grid-cols-2 lg:grid-cols-3">
     {logos.map((logo, i) => (
       <motion.div
         key={logo.name}
@@ -17,12 +17,12 @@ const LogoGrid = ({ logos = brandLogos }: LogoGridProps) => (
         className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-card/60 backdrop-blur-sm transition-colors duration-500 hover:border-primary/50"
       >
         <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.18),transparent_65%)]" />
-        <div className="flex aspect-[4/3] items-center justify-center p-5 sm:p-8">
+        <div className="flex aspect-[16/10] sm:aspect-[4/3] items-center justify-center p-3 sm:p-8">
           <img
             src={logo.url}
             alt={logo.name}
             loading="lazy"
-            className="max-h-full w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]"
+            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]"
           />
         </div>
       </motion.div>
