@@ -11,6 +11,7 @@ export default {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      screens: { xs: "420px" },
       fontFamily: {
         display: ["Syne", "sans-serif"],
         body: ["Space Grotesk", "sans-serif"],
