@@ -6,12 +6,20 @@ import TiltCard from "@/components/TiltCard";
 import shot1 from "@/assets/showcase-1.jpg";
 import shot2 from "@/assets/showcase-2.jpg";
 import shot3 from "@/assets/showcase-3.jpg";
+import waterShot1 from "@/assets/showcase-water-1.jpg";
+import waterShot2 from "@/assets/showcase-water-2.jpg";
+import waterShot3 from "@/assets/showcase-water-3.jpg";
+import { useTheme } from "@/hooks/use-theme";
 
 const VisualShowcase = () => {
+  const { theme } = useTheme();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y1 = useTransform(scrollYProgress, [0, 1], [40, -60]);
   const y2 = useTransform(scrollYProgress, [0, 1], [-30, 70]);
+  const shots = theme === "water"
+    ? [waterShot1, waterShot2, waterShot3]
+    : [shot1, shot2, shot3];
 
   return (
     <section
@@ -46,8 +54,8 @@ const VisualShowcase = () => {
                 className="group h-full overflow-hidden rounded-2xl border border-primary/15 bg-card/60 backdrop-blur-sm"
               >
                 <img
-                  src={shot1}
-                  alt="Dark dashboard interface with glowing ember accents"
+                  src={shots[0]}
+                  alt={theme === "water" ? "Luminous aqua analytics interface" : "Dark dashboard interface with glowing ember accents"}
                   loading="lazy"
                   width={1024}
                   height={1280}
@@ -70,8 +78,8 @@ const VisualShowcase = () => {
                 className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-card/60"
               >
                 <img
-                  src={shot2}
-                  alt="Abstract molten light ribbons over a dark geometric grid"
+                  src={shots[1]}
+                  alt={theme === "water" ? "Translucent aqua ribbons over an architectural grid" : "Abstract molten light ribbons over a dark geometric grid"}
                   loading="lazy"
                   width={1280}
                   height={912}
@@ -94,8 +102,8 @@ const VisualShowcase = () => {
               className="group relative overflow-hidden rounded-2xl border border-primary/15 bg-card/60"
             >
               <img
-                src={shot3}
-                alt="Layered translucent glass website layouts lit with amber rim light"
+                src={shots[2]}
+                alt={theme === "water" ? "Layered glass interfaces with cyan light" : "Layered translucent glass website layouts lit with amber rim light"}
                 loading="lazy"
                 width={1280}
                 height={912}
