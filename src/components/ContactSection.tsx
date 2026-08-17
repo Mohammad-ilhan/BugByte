@@ -38,7 +38,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 md:py-32 relative">
+    <section id="contact" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: dist }}
