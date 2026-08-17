@@ -1,6 +1,8 @@
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 
 type Direction = "up" | "down" | "left" | "right" | "fade" | "zoom";
 
@@ -39,8 +41,15 @@ const ScrollReveal = ({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once, margin: "-80px" });
   const reduce = useReducedMotion();
+  const isMobile = useIsMobile();
 
-  const from = reduce ? { x: 0, y: 0, scale: 1 } : offsetFor(direction, distance);
+  // On small screens horizontal slide-ins get clipped by the viewport,
+  // so fall back to a short vertical reveal.
+  const dir: Direction = isMobile && (direction === "left" || direction === "right") ? "up" : direction;
+  const dist = isMobile ? Math.min(distance, 24) : distance;
+
+  const from = reduce ? { x: 0, y: 0, scale: 1 } : offsetFor(dir, dist);
+
   const variants: Variants = {
     hidden: { opacity: 0, ...from },
     show: { opacity: 1, x: 0, y: 0, scale: 1 },
