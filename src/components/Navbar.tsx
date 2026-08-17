@@ -38,7 +38,7 @@ const Navbar = () => {
           <BugByteLogo />
           <span className="font-display font-extrabold text-lg tracking-tight">BugByte</span>
         </a>
-        <div className="hidden md:flex items-center gap-7">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -56,7 +56,7 @@ const Navbar = () => {
           </a>
           <ThemeToggle />
         </div>
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <ThemeToggle />
           <button onClick={() => setOpen(!open)} className="text-foreground" aria-label="Toggle menu">
             {open ? <X size={24} /> : <Menu size={24} />}
@@ -69,7 +69,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-card/95 backdrop-blur-xl border-b border-ember/10"
+            className="lg:hidden bg-card/95 backdrop-blur-xl border-b border-ember/10"
           >
             <div className="container mx-auto px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
