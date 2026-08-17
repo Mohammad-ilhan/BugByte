@@ -9,6 +9,8 @@ import Lanyard from "@/components/Lanyard/Lanyard";
 import bugbyteLogo from "@/assets/lanyard/zenyx-logo.png";
 import bugbyteLogoLight from "@/assets/lanyard/zenyx-logo-light.png";
 import { useTheme } from "@/hooks/use-theme";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 
 
 const HeroSection = () => {
