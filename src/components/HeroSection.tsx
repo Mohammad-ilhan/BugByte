@@ -166,11 +166,15 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative h-[520px] sm:h-[600px] lg:h-[640px] hidden md:block"
+            className="relative order-first lg:order-none h-[340px] sm:h-[480px] md:h-[560px] lg:h-[640px]"
           >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 sm:h-80 sm:w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[90px]"
+            />
             <Lanyard
               key={theme}
-              position={[0, 0, 18]}
+              position={[0, 0, isCompact ? 22 : 18]}
               gravity={[0, -40, 0]}
               frontImage={cardLogo}
               backImage={cardLogo}
@@ -178,11 +182,31 @@ const HeroSection = () => {
               cardBackground={theme === "water" ? "#ffffff" : "#000000"}
               logoScale={0.55}
             />
-
+            <p className="absolute inset-x-0 bottom-0 text-center text-[10px] sm:text-xs font-body uppercase tracking-[0.25em] text-muted-foreground">
+              Drag the card
+            </p>
           </motion.div>
         </div>
       </motion.div>
+
+      {/* scroll cue */}
+      <motion.div
+        aria-hidden
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.1 }}
+        className="pointer-events-none absolute inset-x-0 bottom-5 hidden sm:flex justify-center"
+      >
+        <motion.span
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="h-10 w-6 rounded-full border border-primary/40 flex items-start justify-center p-1.5"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+        </motion.span>
+      </motion.div>
     </section>
+
   );
 };
 
