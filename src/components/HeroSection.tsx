@@ -27,7 +27,18 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} id="home" className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-14 sm:pt-24 sm:pb-16">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(24_100%_55%_/_0.12)_0%,_transparent_60%)]" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)_/_0.14)_0%,_transparent_62%)]" />
+      {/* fine grid, fades toward the bottom */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(ellipse_at_50%_35%,black,transparent_75%)]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(var(--primary)/0.25) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)/0.25) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
+      />
+      <HeroEmbers />
       <motion.div
         aria-hidden
         style={{ x: orb1X, y: orb1Y }}
@@ -38,6 +49,7 @@ const HeroSection = () => {
         style={{ x: orb2X, y: orb2Y }}
         className="pointer-events-none absolute bottom-0 -right-32 w-[28rem] h-[28rem] rounded-full bg-accent/10 blur-[140px]"
       />
+
 
       {/* Massive faded wordmark — parallax on scroll */}
       <motion.div
