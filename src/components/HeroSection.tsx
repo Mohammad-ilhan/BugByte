@@ -24,6 +24,8 @@ const HeroSection = () => {
   const orb2X = useTransform(mx, (v) => v * -90);
   const orb2Y = useTransform(my, (v) => v * -70);
   const cardLogo = theme === "water" ? bugbyteLogoLight : bugbyteLogo;
+  const isCompact = useIsMobile();
+
 
   return (
     <section ref={sectionRef} id="home" className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-14 sm:pt-24 sm:pb-16">
