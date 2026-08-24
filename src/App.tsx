@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Logos from "./pages/Logos.tsx";
+import Portfolio from "./pages/Portfolio.tsx";
+
 import NotFound from "./pages/NotFound.tsx";
 import { ThemeProvider } from "@/hooks/use-theme";
 
