@@ -27,7 +27,7 @@ const Index = () => {
       <ServicesSection />
       <WhyUsSection />
       <VisualShowcase />
-      <ProjectsSection />
+      <PortfolioCallout />
       <LogosSection />
 
       <ProcessSection />
