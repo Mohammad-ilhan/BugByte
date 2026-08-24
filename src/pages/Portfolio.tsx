@@ -82,7 +82,7 @@ const Portfolio = () => {
                   <img
                     src={site.image}
                     alt={`${site.name} website designed by BugByte Digitals`}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     className="absolute inset-0 h-full w-full object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-60"
                   />
